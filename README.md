@@ -13,9 +13,10 @@ Shows basic information of the user, including number of followers, following, r
 
 ### Following/Follower Page
 * Lists following and followers of the user, can unfollow or follow the list of users.
-* When pressing the right button to unfollow the user, the text on the button changes to 'follow'. Pull to refresh the list, the user disappears immediately. Go back to profile page and pull to refresh, the number of following decreases by one. 
 
 <img src="app/img/IMG_1646.PNG" height="400">       <img src="app/img/IMG_1640.PNG" height="400">
+
+* When pressing the right button to unfollow the user, the text on the button changes to 'follow'. Pull to refresh the list, the user disappears immediately. Go back to profile page and pull to refresh, the number of following decreases by one. 
 
 <img src="app/img/IMG_1656.PNG" height="400">       <img src="app/img/IMG_1657.PNG" height="400">  <img src="app/img/IMG_1658.PNG" height="400">
 
