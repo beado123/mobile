@@ -1,0 +1,5 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var invoker = require(_dependencyMap[0], './invoker');
+
+  module.exports = invoker(1, 'split');
+});

@@ -1,0 +1,34 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  var _has = require(_dependencyMap[1], './internal/_has');
+
+  var _isArray = require(_dependencyMap[2], './internal/_isArray');
+
+  var _isInteger = require(_dependencyMap[3], './internal/_isInteger');
+
+  var assoc = require(_dependencyMap[4], './assoc');
+
+  var isNil = require(_dependencyMap[5], './isNil');
+
+  module.exports = _curry3(function assocPath(path, val, obj) {
+    if (path.length === 0) {
+      return val;
+    }
+
+    var idx = path[0];
+
+    if (path.length > 1) {
+      var nextObj = !isNil(obj) && _has(idx, obj) ? obj[idx] : _isInteger(path[1]) ? [] : {};
+      val = assocPath(Array.prototype.slice.call(path, 1), val, nextObj);
+    }
+
+    if (_isInteger(idx) && _isArray(obj)) {
+      var arr = [].concat(obj);
+      arr[idx] = val;
+      return arr;
+    } else {
+      return assoc(idx, val, obj);
+    }
+  });
+});

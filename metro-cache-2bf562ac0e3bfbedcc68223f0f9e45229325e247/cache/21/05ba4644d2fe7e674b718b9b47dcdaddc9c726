@@ -1,0 +1,13 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+	module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
+		"__packager_asset": true,
+		"httpServerLocation": "/assets/app/img",
+		"width": 736,
+		"height": 1308,
+		"scales": [1],
+		"hash": "3c21bd9013c46e03d54371879e66dffc",
+		"name": "wallpaper2",
+		"type": "jpg",
+		"fileHashes": ["3c21bd9013c46e03d54371879e66dffc"]
+	});
+});

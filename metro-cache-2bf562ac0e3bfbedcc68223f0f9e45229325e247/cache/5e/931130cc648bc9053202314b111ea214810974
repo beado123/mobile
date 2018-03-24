@@ -1,0 +1,21 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry2 = require(_dependencyMap[0], './internal/_curry2');
+
+  var _dispatchable = require(_dependencyMap[1], './internal/_dispatchable');
+
+  var _xfindLastIndex = require(_dependencyMap[2], './internal/_xfindLastIndex');
+
+  module.exports = _curry2(_dispatchable([], _xfindLastIndex, function findLastIndex(fn, list) {
+    var idx = list.length - 1;
+
+    while (idx >= 0) {
+      if (fn(list[idx])) {
+        return idx;
+      }
+
+      idx -= 1;
+    }
+
+    return -1;
+  }));
+});

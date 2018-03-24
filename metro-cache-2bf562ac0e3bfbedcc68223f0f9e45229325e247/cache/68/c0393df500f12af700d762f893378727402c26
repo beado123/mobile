@@ -1,0 +1,17 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry2 = require(_dependencyMap[0], './internal/_curry2');
+
+  var _isInteger = require(_dependencyMap[1], './internal/_isInteger');
+
+  module.exports = _curry2(function mathMod(m, p) {
+    if (!_isInteger(m)) {
+      return NaN;
+    }
+
+    if (!_isInteger(p) || p < 1) {
+      return NaN;
+    }
+
+    return (m % p + p) % p;
+  });
+});

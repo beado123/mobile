@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  var map = require(_dependencyMap[1], './map');
+
+  var sequence = require(_dependencyMap[2], './sequence');
+
+  module.exports = _curry3(function traverse(of, f, traversable) {
+    return typeof traversable['fantasy-land/traverse'] === 'function' ? traversable['fantasy-land/traverse'](f, of) : sequence(of, map(f, traversable));
+  });
+});

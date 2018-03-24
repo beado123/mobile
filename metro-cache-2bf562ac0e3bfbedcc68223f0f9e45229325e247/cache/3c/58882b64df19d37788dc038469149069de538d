@@ -1,0 +1,9 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  var _has = require(_dependencyMap[1], './internal/_has');
+
+  module.exports = _curry3(function propOr(val, p, obj) {
+    return obj != null && _has(p, obj) ? obj[p] : val;
+  });
+});

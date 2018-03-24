@@ -1,0 +1,28 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _arity = require(_dependencyMap[0], './internal/_arity');
+
+  var _curry1 = require(_dependencyMap[1], './internal/_curry1');
+
+  var map = require(_dependencyMap[2], './map');
+
+  var max = require(_dependencyMap[3], './max');
+
+  var reduce = require(_dependencyMap[4], './reduce');
+
+  module.exports = _curry1(function cond(pairs) {
+    var arity = reduce(max, 0, map(function (pair) {
+      return pair[0].length;
+    }, pairs));
+    return _arity(arity, function () {
+      var idx = 0;
+
+      while (idx < pairs.length) {
+        if (pairs[idx][0].apply(this, arguments)) {
+          return pairs[idx][1].apply(this, arguments);
+        }
+
+        idx += 1;
+      }
+    });
+  });
+});

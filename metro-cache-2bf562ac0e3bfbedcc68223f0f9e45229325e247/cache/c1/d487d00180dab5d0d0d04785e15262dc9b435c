@@ -1,0 +1,13 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _containsWith = require(_dependencyMap[0], './internal/_containsWith');
+
+  var _curry3 = require(_dependencyMap[1], './internal/_curry3');
+
+  var _filter = require(_dependencyMap[2], './internal/_filter');
+
+  module.exports = _curry3(function innerJoin(pred, xs, ys) {
+    return _filter(function (x) {
+      return _containsWith(pred, x, ys);
+    }, xs);
+  });
+});

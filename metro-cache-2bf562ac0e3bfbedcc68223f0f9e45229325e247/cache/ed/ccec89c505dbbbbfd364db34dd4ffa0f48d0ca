@@ -1,0 +1,13 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  module.exports = _curry3(function until(pred, fn, init) {
+    var val = init;
+
+    while (!pred(val)) {
+      val = fn(val);
+    }
+
+    return val;
+  });
+});

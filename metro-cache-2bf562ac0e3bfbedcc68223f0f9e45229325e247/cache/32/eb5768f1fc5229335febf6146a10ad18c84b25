@@ -1,0 +1,9 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  var equals = require(_dependencyMap[1], './equals');
+
+  module.exports = _curry3(function eqBy(f, x, y) {
+    return equals(f(x), f(y));
+  });
+});

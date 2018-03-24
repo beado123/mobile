@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  var concat = require(_dependencyMap[1], './concat');
+
+  var differenceWith = require(_dependencyMap[2], './differenceWith');
+
+  module.exports = _curry3(function symmetricDifferenceWith(pred, list1, list2) {
+    return concat(differenceWith(pred, list1, list2), differenceWith(pred, list2, list1));
+  });
+});

@@ -1,0 +1,9 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry2 = require(_dependencyMap[0], './internal/_curry2');
+
+  var drop = require(_dependencyMap[1], './drop');
+
+  module.exports = _curry2(function takeLast(n, xs) {
+    return drop(n >= 0 ? xs.length - n : 0, xs);
+  });
+});

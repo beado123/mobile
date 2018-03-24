@@ -1,0 +1,5 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var add = require(_dependencyMap[0], './add');
+
+  module.exports = add(-1);
+});

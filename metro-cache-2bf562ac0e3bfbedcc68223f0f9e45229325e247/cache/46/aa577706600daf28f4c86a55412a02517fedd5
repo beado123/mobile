@@ -1,0 +1,7 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var reduceBy = require(_dependencyMap[0], './reduceBy');
+
+  module.exports = reduceBy(function (acc, elem) {
+    return acc + 1;
+  }, 0);
+});

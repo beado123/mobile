@@ -1,0 +1,9 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  var path = require(_dependencyMap[1], './path');
+
+  module.exports = _curry3(function pathSatisfies(pred, propPath, obj) {
+    return propPath.length > 0 && pred(path(propPath, obj));
+  });
+});

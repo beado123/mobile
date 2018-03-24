@@ -1,0 +1,17 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry2 = require(_dependencyMap[0], './internal/_curry2');
+
+  var ap = require(_dependencyMap[1], './ap');
+
+  var map = require(_dependencyMap[2], './map');
+
+  var prepend = require(_dependencyMap[3], './prepend');
+
+  var reduceRight = require(_dependencyMap[4], './reduceRight');
+
+  module.exports = _curry2(function sequence(of, traversable) {
+    return typeof traversable.sequence === 'function' ? traversable.sequence(of) : reduceRight(function (x, acc) {
+      return ap(map(prepend, x), acc);
+    }, of([]), traversable);
+  });
+});

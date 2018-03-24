@@ -1,0 +1,5 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  module.exports = Number.isInteger || function _isInteger(n) {
+    return n << 0 === n;
+  };
+});

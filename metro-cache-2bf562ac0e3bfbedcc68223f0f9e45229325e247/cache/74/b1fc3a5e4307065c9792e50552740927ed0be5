@@ -1,0 +1,17 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _arity = require(_dependencyMap[0], './internal/_arity');
+
+  var _pipeP = require(_dependencyMap[1], './internal/_pipeP');
+
+  var reduce = require(_dependencyMap[2], './reduce');
+
+  var tail = require(_dependencyMap[3], './tail');
+
+  module.exports = function pipeP() {
+    if (arguments.length === 0) {
+      throw new Error('pipeP requires at least one argument');
+    }
+
+    return _arity(arguments[0].length, reduce(_pipeP, arguments[0], tail(arguments)));
+  };
+});

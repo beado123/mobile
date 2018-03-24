@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  var always = require(_dependencyMap[1], './always');
+
+  var over = require(_dependencyMap[2], './over');
+
+  module.exports = _curry3(function set(lens, v, x) {
+    return over(lens, always(v), x);
+  });
+});

@@ -1,0 +1,29 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry1 = require(_dependencyMap[0], './internal/_curry1');
+
+  var apply = require(_dependencyMap[1], './apply');
+
+  var curryN = require(_dependencyMap[2], './curryN');
+
+  var map = require(_dependencyMap[3], './map');
+
+  var max = require(_dependencyMap[4], './max');
+
+  var pluck = require(_dependencyMap[5], './pluck');
+
+  var reduce = require(_dependencyMap[6], './reduce');
+
+  var values = require(_dependencyMap[7], './values');
+
+  module.exports = _curry1(function applySpec(spec) {
+    spec = map(function (v) {
+      return typeof v == 'function' ? v : applySpec(v);
+    }, spec);
+    return curryN(reduce(max, 0, pluck('length', values(spec))), function () {
+      var args = arguments;
+      return map(function (f) {
+        return apply(f, args);
+      }, spec);
+    });
+  });
+});

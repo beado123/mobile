@@ -1,0 +1,7 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry1 = require(_dependencyMap[0], './internal/_curry1');
+
+  var _makeFlat = require(_dependencyMap[1], './internal/_makeFlat');
+
+  module.exports = _curry1(_makeFlat(true));
+});

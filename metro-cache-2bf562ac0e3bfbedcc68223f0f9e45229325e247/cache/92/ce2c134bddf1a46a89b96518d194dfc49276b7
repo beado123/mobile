@@ -1,0 +1,21 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry2 = require(_dependencyMap[0], './internal/_curry2');
+
+  var _dispatchable = require(_dependencyMap[1], './internal/_dispatchable');
+
+  var _makeFlat = require(_dependencyMap[2], './internal/_makeFlat');
+
+  var _xchain = require(_dependencyMap[3], './internal/_xchain');
+
+  var map = require(_dependencyMap[4], './map');
+
+  module.exports = _curry2(_dispatchable(['fantasy-land/chain', 'chain'], _xchain, function chain(fn, monad) {
+    if (typeof monad === 'function') {
+      return function (x) {
+        return fn(monad(x))(x);
+      };
+    }
+
+    return _makeFlat(false)(map(fn, monad));
+  }));
+});

@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry2 = require(_dependencyMap[0], './internal/_curry2');
+
+  var length = require(_dependencyMap[1], './length');
+
+  var slice = require(_dependencyMap[2], './slice');
+
+  module.exports = _curry2(function splitAt(index, array) {
+    return [slice(0, index, array), slice(index, length(array), array)];
+  });
+});

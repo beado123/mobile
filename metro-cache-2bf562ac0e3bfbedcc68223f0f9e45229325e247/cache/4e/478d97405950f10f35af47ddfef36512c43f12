@@ -1,0 +1,5 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _objectAssign = require(_dependencyMap[0], './_objectAssign');
+
+  module.exports = typeof Object.assign === 'function' ? Object.assign : _objectAssign;
+});

@@ -1,0 +1,7 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var multiply = require(_dependencyMap[0], './multiply');
+
+  var reduce = require(_dependencyMap[1], './reduce');
+
+  module.exports = reduce(multiply, 1);
+});

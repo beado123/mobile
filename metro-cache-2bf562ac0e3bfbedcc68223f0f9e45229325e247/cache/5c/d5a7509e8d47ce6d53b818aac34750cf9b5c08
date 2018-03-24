@@ -1,0 +1,7 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry1 = require(_dependencyMap[0], './internal/_curry1');
+
+  module.exports = _curry1(function negate(n) {
+    return -n;
+  });
+});

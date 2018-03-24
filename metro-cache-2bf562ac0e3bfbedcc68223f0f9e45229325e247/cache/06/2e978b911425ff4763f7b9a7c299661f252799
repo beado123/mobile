@@ -1,0 +1,23 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry2 = require(_dependencyMap[0], './internal/_curry2');
+
+  var _map = require(_dependencyMap[1], './internal/_map');
+
+  var curryN = require(_dependencyMap[2], './curryN');
+
+  var max = require(_dependencyMap[3], './max');
+
+  var pluck = require(_dependencyMap[4], './pluck');
+
+  var reduce = require(_dependencyMap[5], './reduce');
+
+  module.exports = _curry2(function converge(after, fns) {
+    return curryN(reduce(max, 0, pluck('length', fns)), function () {
+      var args = arguments;
+      var context = this;
+      return after.apply(context, _map(function (fn) {
+        return fn.apply(context, args);
+      }, fns));
+    });
+  });
+});

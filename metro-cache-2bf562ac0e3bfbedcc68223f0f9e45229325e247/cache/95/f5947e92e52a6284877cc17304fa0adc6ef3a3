@@ -1,0 +1,9 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var filter = require(_dependencyMap[0], './filter');
+
+  var juxt = require(_dependencyMap[1], './juxt');
+
+  var reject = require(_dependencyMap[2], './reject');
+
+  module.exports = juxt([filter, reject]);
+});

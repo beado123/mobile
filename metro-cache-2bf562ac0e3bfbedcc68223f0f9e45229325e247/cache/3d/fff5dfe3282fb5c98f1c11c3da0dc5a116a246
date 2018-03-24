@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _concat = require(_dependencyMap[0], './internal/_concat');
+
+  var _curry3 = require(_dependencyMap[1], './internal/_curry3');
+
+  var uniqWith = require(_dependencyMap[2], './uniqWith');
+
+  module.exports = _curry3(function unionWith(pred, list1, list2) {
+    return uniqWith(pred, _concat(list1, list2));
+  });
+});

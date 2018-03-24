@@ -1,0 +1,20 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  module.exports = function () {
+    var Identity = function Identity(x) {
+      return {
+        value: x,
+        map: function map(f) {
+          return Identity(f(x));
+        }
+      };
+    };
+
+    return _curry3(function over(lens, f, x) {
+      return lens(function (y) {
+        return Identity(f(y));
+      })(x).value;
+    });
+  }();
+});

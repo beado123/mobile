@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  var curryN = require(_dependencyMap[1], './curryN');
+
+  module.exports = _curry3(function ifElse(condition, onTrue, onFalse) {
+    return curryN(Math.max(condition.length, onTrue.length, onFalse.length), function _ifElse() {
+      return condition.apply(this, arguments) ? onTrue.apply(this, arguments) : onFalse.apply(this, arguments);
+    });
+  });
+});

@@ -1,0 +1,7 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _indexOf = require(_dependencyMap[0], './_indexOf');
+
+  module.exports = function _contains(a, list) {
+    return _indexOf(list, a, 0) >= 0;
+  };
+});

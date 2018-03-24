@@ -1,0 +1,5 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var slice = require(_dependencyMap[0], './slice');
+
+  module.exports = slice(0, -1);
+});

@@ -1,0 +1,17 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry1 = require(_dependencyMap[0], './internal/_curry1');
+
+  var _isArguments = require(_dependencyMap[1], './internal/_isArguments');
+
+  var _isArray = require(_dependencyMap[2], './internal/_isArray');
+
+  var _isObject = require(_dependencyMap[3], './internal/_isObject');
+
+  var _isString = require(_dependencyMap[4], './internal/_isString');
+
+  module.exports = _curry1(function empty(x) {
+    return x != null && typeof x['fantasy-land/empty'] === 'function' ? x['fantasy-land/empty']() : x != null && x.constructor != null && typeof x.constructor['fantasy-land/empty'] === 'function' ? x.constructor['fantasy-land/empty']() : x != null && typeof x.empty === 'function' ? x.empty() : x != null && x.constructor != null && typeof x.constructor.empty === 'function' ? x.constructor.empty() : _isArray(x) ? [] : _isString(x) ? '' : _isObject(x) ? {} : _isArguments(x) ? function () {
+      return arguments;
+    }() : void 0;
+  });
+});

@@ -1,0 +1,24 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  var _has = require(_dependencyMap[1], './internal/_has');
+
+  module.exports = _curry3(function mergeWithKey(fn, l, r) {
+    var result = {};
+    var k;
+
+    for (k in l) {
+      if (_has(k, l)) {
+        result[k] = _has(k, r) ? fn(k, l[k], r[k]) : l[k];
+      }
+    }
+
+    for (k in r) {
+      if (_has(k, r) && !_has(k, result)) {
+        result[k] = r[k];
+      }
+    }
+
+    return result;
+  });
+});

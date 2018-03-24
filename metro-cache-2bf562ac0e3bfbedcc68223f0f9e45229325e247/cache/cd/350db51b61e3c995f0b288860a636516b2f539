@@ -1,0 +1,25 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry2 = require(_dependencyMap[0], './internal/_curry2');
+
+  var _dispatchable = require(_dependencyMap[1], './internal/_dispatchable');
+
+  var _filter = require(_dependencyMap[2], './internal/_filter');
+
+  var _isObject = require(_dependencyMap[3], './internal/_isObject');
+
+  var _reduce = require(_dependencyMap[4], './internal/_reduce');
+
+  var _xfilter = require(_dependencyMap[5], './internal/_xfilter');
+
+  var keys = require(_dependencyMap[6], './keys');
+
+  module.exports = _curry2(_dispatchable(['filter'], _xfilter, function (pred, filterable) {
+    return _isObject(filterable) ? _reduce(function (acc, key) {
+      if (pred(filterable[key])) {
+        acc[key] = filterable[key];
+      }
+
+      return acc;
+    }, {}, keys(filterable)) : _filter(pred, filterable);
+  }));
+});

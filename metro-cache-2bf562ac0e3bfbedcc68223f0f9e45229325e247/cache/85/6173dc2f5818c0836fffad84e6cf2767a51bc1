@@ -1,0 +1,39 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry2 = require(_dependencyMap[0], './internal/_curry2');
+
+  var _isArray = require(_dependencyMap[1], './internal/_isArray');
+
+  var _isFunction = require(_dependencyMap[2], './internal/_isFunction');
+
+  var _isString = require(_dependencyMap[3], './internal/_isString');
+
+  var toString = require(_dependencyMap[4], './toString');
+
+  module.exports = _curry2(function concat(a, b) {
+    if (_isArray(a)) {
+      if (_isArray(b)) {
+        return a.concat(b);
+      }
+
+      throw new TypeError(toString(b) + ' is not an array');
+    }
+
+    if (_isString(a)) {
+      if (_isString(b)) {
+        return a + b;
+      }
+
+      throw new TypeError(toString(b) + ' is not a string');
+    }
+
+    if (a != null && _isFunction(a['fantasy-land/concat'])) {
+      return a['fantasy-land/concat'](b);
+    }
+
+    if (a != null && _isFunction(a.concat)) {
+      return a.concat(b);
+    }
+
+    throw new TypeError(toString(a) + ' does not have a method named "concat" or "fantasy-land/concat"');
+  });
+});

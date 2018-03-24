@@ -1,0 +1,9 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry1 = require(_dependencyMap[0], './internal/_curry1');
+
+  var _isString = require(_dependencyMap[1], './internal/_isString');
+
+  module.exports = _curry1(function reverse(list) {
+    return _isString(list) ? list.split('').reverse().join('') : Array.prototype.slice.call(list, 0).reverse();
+  });
+});

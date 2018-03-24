@@ -1,0 +1,16 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _checkForMethod = require(_dependencyMap[0], './internal/_checkForMethod');
+
+  var _curry2 = require(_dependencyMap[1], './internal/_curry2');
+
+  var reduceBy = require(_dependencyMap[2], './reduceBy');
+
+  module.exports = _curry2(_checkForMethod('groupBy', reduceBy(function (acc, item) {
+    if (acc == null) {
+      acc = [];
+    }
+
+    acc.push(item);
+    return acc;
+  }, null)));
+});

@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry2 = require(_dependencyMap[0], './_curry2');
+
+  var _flatCat = require(_dependencyMap[1], './_flatCat');
+
+  var map = require(_dependencyMap[2], '../map');
+
+  module.exports = _curry2(function _xchain(f, xf) {
+    return map(f, _flatCat(xf));
+  });
+});

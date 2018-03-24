@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  var defaultTo = require(_dependencyMap[1], './defaultTo');
+
+  var path = require(_dependencyMap[2], './path');
+
+  module.exports = _curry3(function pathOr(d, p, obj) {
+    return defaultTo(d, path(p, obj));
+  });
+});

@@ -1,0 +1,17 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _concat = require(_dependencyMap[0], './internal/_concat');
+
+  var _curry2 = require(_dependencyMap[1], './internal/_curry2');
+
+  var _reduce = require(_dependencyMap[2], './internal/_reduce');
+
+  var map = require(_dependencyMap[3], './map');
+
+  module.exports = _curry2(function ap(applyF, applyX) {
+    return typeof applyX['fantasy-land/ap'] === 'function' ? applyX['fantasy-land/ap'](applyF) : typeof applyF.ap === 'function' ? applyF.ap(applyX) : typeof applyF === 'function' ? function (x) {
+      return applyF(x)(applyX(x));
+    } : _reduce(function (acc, f) {
+      return _concat(acc, map(f, applyX));
+    }, [], applyF);
+  });
+});

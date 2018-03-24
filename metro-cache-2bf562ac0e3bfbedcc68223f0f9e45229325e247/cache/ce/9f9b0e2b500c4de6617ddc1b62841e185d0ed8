@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  var mergeDeepWithKey = require(_dependencyMap[1], './mergeDeepWithKey');
+
+  module.exports = _curry3(function mergeDeepWith(fn, lObj, rObj) {
+    return mergeDeepWithKey(function (k, lVal, rVal) {
+      return fn(lVal, rVal);
+    }, lObj, rObj);
+  });
+});

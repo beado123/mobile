@@ -1,0 +1,18 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry2 = require(_dependencyMap[0], './internal/_curry2');
+
+  var keys = require(_dependencyMap[1], './keys');
+
+  module.exports = _curry2(function forEachObjIndexed(fn, obj) {
+    var keyList = keys(obj);
+    var idx = 0;
+
+    while (idx < keyList.length) {
+      var key = keyList[idx];
+      fn(obj[key], key, obj);
+      idx += 1;
+    }
+
+    return obj;
+  });
+});

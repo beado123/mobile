@@ -1,0 +1,20 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry2 = require(_dependencyMap[0], './internal/_curry2');
+
+  var slice = require(_dependencyMap[1], './slice');
+
+  module.exports = _curry2(function splitEvery(n, list) {
+    if (n <= 0) {
+      throw new Error('First argument to splitEvery must be a positive integer');
+    }
+
+    var result = [];
+    var idx = 0;
+
+    while (idx < list.length) {
+      result.push(slice(idx, idx += n, list));
+    }
+
+    return result;
+  });
+});

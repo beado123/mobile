@@ -1,0 +1,502 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    var _react2 = require(_dependencyMap[0], "react");
+
+    var _react3 = _interopRequireDefault(_react2);
+
+    var _index = require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
+
+    var _index2 = _interopRequireDefault(_index);
+
+    var _jsxFileName = "/home/yihan/AwesomeProject/app/components/Profile.js";
+
+    var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+    var _reactNavigation = require(_dependencyMap[2], "react-navigation");
+
+    var _reactNative = require(_dependencyMap[3], "react-native");
+
+    var _Header = require(_dependencyMap[4], "/home/yihan/AwesomeProject/app/styles/Header");
+
+    var _Header2 = _interopRequireDefault(_Header);
+
+    var _Bar = require(_dependencyMap[5], "/home/yihan/AwesomeProject/app/styles/Bar");
+
+    var _Bar2 = _interopRequireDefault(_Bar);
+
+    function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    var _components = {
+        ProfilePage: {
+            displayName: "ProfilePage"
+        }
+    };
+
+    var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+        filename: "/home/yihan/AwesomeProject/app/components/Profile.js",
+        components: _components,
+        locals: [module],
+        imports: [_react3.default]
+    });
+
+    function _wrapComponent(id) {
+        return function (Component) {
+            return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+        };
+    }
+
+    {}
+
+    var ProfilePage = _wrapComponent("ProfilePage")(function (_React$Component) {
+        _inherits(ProfilePage, _React$Component);
+
+        function ProfilePage() {
+            var _ref,
+                _this2 = this;
+
+            var _temp, _this, _ret;
+
+            _classCallCheck(this, ProfilePage);
+
+            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+                args[_key] = arguments[_key];
+            }
+
+            return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ProfilePage.__proto__ || Object.getPrototypeOf(ProfilePage)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+                login: '',
+                username: '',
+                followers: -1,
+                following: -1,
+                public_repos: -1,
+                avatar_url: "f",
+                created_at: '',
+                refreshing: false
+            }, _this.fetchDataFromAPI = function _callee(login, ending) {
+                var response, responseJson;
+                return regeneratorRuntime.async(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _context.next = 2;
+                                return regeneratorRuntime.awrap(fetch('http://api.github.com/users/' + login + ending));
+
+                            case 2:
+                                response = _context.sent;
+                                _context.next = 5;
+                                return regeneratorRuntime.awrap(response.json());
+
+                            case 5:
+                                responseJson = _context.sent;
+                                return _context.abrupt("return", responseJson);
+
+                            case 7:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, null, _this2);
+            }, _this.fetchData = function _callee2() {
+                var username, params, login, userJson, followingJson, followersJson, reposJson;
+                return regeneratorRuntime.async(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                console.log('profile fetching data...');
+                                _context2.next = 3;
+                                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('username'));
+
+                            case 3:
+                                username = _context2.sent;
+                                params = _this.props.navigation.state.params;
+                                login = params ? params.name : username;
+                                _context2.next = 8;
+                                return regeneratorRuntime.awrap(_this.fetchDataFromAPI(login, ''));
+
+                            case 8:
+                                userJson = _context2.sent;
+                                _context2.next = 11;
+                                return regeneratorRuntime.awrap(_this.fetchDataFromAPI(login, '/following'));
+
+                            case 11:
+                                followingJson = _context2.sent;
+                                _context2.next = 14;
+                                return regeneratorRuntime.awrap(_this.fetchDataFromAPI(login, '/followers'));
+
+                            case 14:
+                                followersJson = _context2.sent;
+                                _context2.next = 17;
+                                return regeneratorRuntime.awrap(_this.fetchDataFromAPI(login, '/repos'));
+
+                            case 17:
+                                reposJson = _context2.sent;
+
+                                if (login == username) {
+                                    console.log('storing following information');
+
+                                    _reactNative.AsyncStorage.setItem('followers', JSON.stringify(followersJson));
+
+                                    _reactNative.AsyncStorage.setItem('following', JSON.stringify(followingJson));
+
+                                    _reactNative.AsyncStorage.setItem('repos', JSON.stringify(reposJson));
+                                }
+
+                                _this.setState({
+                                    followers: userJson.followers,
+                                    following: userJson.following,
+                                    public_repos: userJson.public_repos,
+                                    login: login,
+                                    username: username,
+                                    avatar_url: userJson.avatar_url,
+                                    created_at: userJson.created_at.substring(0, 9)
+                                });
+
+                            case 20:
+                            case "end":
+                                return _context2.stop();
+                        }
+                    }
+                }, null, _this2);
+            }, _this.updateData = function _callee3() {
+                var followingJson, following, followersJson, followers;
+                return regeneratorRuntime.async(function _callee3$(_context3) {
+                    while (1) {
+                        switch (_context3.prev = _context3.next) {
+                            case 0:
+                                _context3.next = 2;
+                                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('following'));
+
+                            case 2:
+                                followingJson = _context3.sent;
+                                following = JSON.parse(followingJson);
+                                _context3.next = 6;
+                                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('followers'));
+
+                            case 6:
+                                followersJson = _context3.sent;
+                                followers = JSON.parse(followersJson);
+
+                                _this.setState({
+                                    followers: followers.length,
+                                    following: following.length
+                                });
+
+                            case 9:
+                            case "end":
+                                return _context3.stop();
+                        }
+                    }
+                }, null, _this2);
+            }, _this._onRefresh = function () {
+                console.log('refreshing...');
+
+                _this.setState({
+                    refreshing: true
+                });
+
+                _this.updateData().then(function () {
+                    _this.setState({
+                        refreshing: false
+                    });
+                });
+            }, _temp), _possibleConstructorReturn(_this, _ret);
+        }
+
+        _createClass(ProfilePage, [{
+            key: "componentWillMount",
+            value: function componentWillMount() {
+                this.fetchData();
+            }
+        }, {
+            key: "render",
+            value: function render() {
+                var _this3 = this;
+
+                return _react3.default.createElement(
+                    _reactNative.ScrollView,
+                    {
+                        refreshControl: _react3.default.createElement(_reactNative.RefreshControl, {
+                            refreshing: this.state.refreshing,
+                            onRefresh: this._onRefresh.bind(this),
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 74
+                            }
+                        }),
+                        contentContainerStyle: {
+                            flexGrow: 1
+                        },
+                        scrollEnabled: true,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 73
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        {
+                            style: {
+                                flex: 1,
+                                flexDirection: 'column'
+                            },
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 80
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.ImageBackground,
+                            {
+                                style: _Header2.default.headerBackground,
+                                source: require(_dependencyMap[6], "/home/yihan/AwesomeProject/app/img/wallpaper2.jpg"),
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 81
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.View,
+                                {
+                                    style: _Header2.default.header,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 82
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.View,
+                                    {
+                                        style: _Header2.default.profilepicWrap,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 83
+                                        }
+                                    },
+                                    _react3.default.createElement(_reactNative.Image, {
+                                        style: _Header2.default.profilepic,
+                                        source: {
+                                            uri: this.state.avatar_url
+                                        },
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 84
+                                        }
+                                    })
+                                ),
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: _Header2.default.name,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 86
+                                        }
+                                    },
+                                    this.state.login
+                                ),
+                                this.state.login != this.state.username && _react3.default.createElement(
+                                    _reactNative.TouchableOpacity,
+                                    {
+                                        style: _Header2.default.button,
+                                        onPress: function onPress() {
+                                            return _this3.props.navigation.goBack();
+                                        },
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 87
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 88
+                                            }
+                                        },
+                                        "Go Back"
+                                    )
+                                )
+                            ),
+                            _react3.default.createElement(
+                                _reactNative.View,
+                                {
+                                    style: _Bar2.default.bar,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 92
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.View,
+                                    {
+                                        style: _Bar2.default.firstBar,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 93
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.View,
+                                        {
+                                            style: [_Bar2.default.barItem, _Bar2.default.barseparator],
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 94
+                                            }
+                                        },
+                                        _react3.default.createElement(
+                                            _reactNative.Text,
+                                            {
+                                                style: _Bar2.default.barTop,
+                                                __source: {
+                                                    fileName: _jsxFileName,
+                                                    lineNumber: 95
+                                                }
+                                            },
+                                            this.state.followers
+                                        ),
+                                        _react3.default.createElement(
+                                            _reactNative.Text,
+                                            {
+                                                style: _Bar2.default.barBottom,
+                                                onPress: function onPress() {
+                                                    return _this3.props.navigation.navigate('followers', {
+                                                        name: _this3.state.login
+                                                    });
+                                                },
+                                                __source: {
+                                                    fileName: _jsxFileName,
+                                                    lineNumber: 96
+                                                }
+                                            },
+                                            "Followers"
+                                        )
+                                    ),
+                                    _react3.default.createElement(
+                                        _reactNative.View,
+                                        {
+                                            style: [_Bar2.default.barItem, _Bar2.default.barseparator],
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 98
+                                            }
+                                        },
+                                        _react3.default.createElement(
+                                            _reactNative.Text,
+                                            {
+                                                style: _Bar2.default.barTop,
+                                                __source: {
+                                                    fileName: _jsxFileName,
+                                                    lineNumber: 99
+                                                }
+                                            },
+                                            this.state.following
+                                        ),
+                                        _react3.default.createElement(
+                                            _reactNative.Text,
+                                            {
+                                                style: _Bar2.default.barBottom,
+                                                onPress: function onPress() {
+                                                    return _this3.props.navigation.navigate('following', {
+                                                        name: _this3.state.login
+                                                    });
+                                                },
+                                                __source: {
+                                                    fileName: _jsxFileName,
+                                                    lineNumber: 100
+                                                }
+                                            },
+                                            "following"
+                                        )
+                                    ),
+                                    _react3.default.createElement(
+                                        _reactNative.View,
+                                        {
+                                            style: _Bar2.default.barItem,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 102
+                                            }
+                                        },
+                                        _react3.default.createElement(
+                                            _reactNative.Text,
+                                            {
+                                                style: _Bar2.default.barTop,
+                                                __source: {
+                                                    fileName: _jsxFileName,
+                                                    lineNumber: 103
+                                                }
+                                            },
+                                            this.state.public_repos
+                                        ),
+                                        _react3.default.createElement(
+                                            _reactNative.Text,
+                                            {
+                                                style: _Bar2.default.barBottom,
+                                                onPress: function onPress() {
+                                                    return _this3.props.navigation.navigate('repositry', {
+                                                        name: _this3.state.login
+                                                    });
+                                                },
+                                                __source: {
+                                                    fileName: _jsxFileName,
+                                                    lineNumber: 104
+                                                }
+                                            },
+                                            "Repositry"
+                                        )
+                                    )
+                                ),
+                                _react3.default.createElement(
+                                    _reactNative.View,
+                                    {
+                                        style: _Bar2.default.dateBar,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 107
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: _Bar2.default.barTop,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 108
+                                            }
+                                        },
+                                        "Created at"
+                                    ),
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: _Bar2.default.barBottom,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 109
+                                            }
+                                        },
+                                        this.state.created_at
+                                    )
+                                )
+                            )
+                        )
+                    )
+                );
+            }
+        }]);
+
+        return ProfilePage;
+    }(_react3.default.Component));
+
+    exports.default = ProfilePage;
+});

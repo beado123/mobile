@@ -1,0 +1,8 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  module.exports = function _forceReduced(x) {
+    return {
+      '@@transducer/value': x,
+      '@@transducer/reduced': true
+    };
+  };
+});

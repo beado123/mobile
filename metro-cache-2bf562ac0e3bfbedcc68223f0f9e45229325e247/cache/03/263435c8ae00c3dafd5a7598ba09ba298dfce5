@@ -1,0 +1,7 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var curry = require(_dependencyMap[0], './curry');
+
+  module.exports = curry(function call(fn) {
+    return fn.apply(this, Array.prototype.slice.call(arguments, 1));
+  });
+});

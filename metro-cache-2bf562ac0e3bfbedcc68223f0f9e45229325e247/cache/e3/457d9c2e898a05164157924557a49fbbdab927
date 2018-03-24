@@ -1,0 +1,17 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _arity = require(_dependencyMap[0], './internal/_arity');
+
+  var _concat = require(_dependencyMap[1], './internal/_concat');
+
+  var _curry2 = require(_dependencyMap[2], './internal/_curry2');
+
+  module.exports = _curry2(function _tryCatch(tryer, catcher) {
+    return _arity(tryer.length, function () {
+      try {
+        return tryer.apply(this, arguments);
+      } catch (e) {
+        return catcher.apply(this, _concat([e], arguments));
+      }
+    });
+  });
+});

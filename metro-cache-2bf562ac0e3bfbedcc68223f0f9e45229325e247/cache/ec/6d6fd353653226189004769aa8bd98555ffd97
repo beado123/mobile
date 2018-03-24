@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _map = require(_dependencyMap[0], './internal/_map');
+
+  var identity = require(_dependencyMap[1], './identity');
+
+  var pickAll = require(_dependencyMap[2], './pickAll');
+
+  var useWith = require(_dependencyMap[3], './useWith');
+
+  module.exports = useWith(_map, [pickAll, identity]);
+});

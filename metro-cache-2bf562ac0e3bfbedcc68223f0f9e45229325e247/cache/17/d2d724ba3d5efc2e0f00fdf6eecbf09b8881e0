@@ -1,0 +1,13 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var pipeP = require(_dependencyMap[0], './pipeP');
+
+  var reverse = require(_dependencyMap[1], './reverse');
+
+  module.exports = function composeP() {
+    if (arguments.length === 0) {
+      throw new Error('composeP requires at least one argument');
+    }
+
+    return pipeP.apply(this, reverse(arguments));
+  };
+});

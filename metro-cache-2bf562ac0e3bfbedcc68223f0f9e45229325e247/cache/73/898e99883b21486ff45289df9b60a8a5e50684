@@ -1,0 +1,5 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var nth = require(_dependencyMap[0], './nth');
+
+  module.exports = nth(-1);
+});

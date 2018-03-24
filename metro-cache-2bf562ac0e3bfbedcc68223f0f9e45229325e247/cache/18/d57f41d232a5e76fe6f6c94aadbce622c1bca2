@@ -1,0 +1,13 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
+    "__packager_asset": true,
+    "httpServerLocation": "/assets/node_modules/react-navigation/src/views/assets",
+    "width": 12,
+    "height": 21,
+    "scales": [1, 1.5, 2, 3, 4],
+    "hash": "955cfb5df91f57a3406ad257d9efe4eb",
+    "name": "back-icon",
+    "type": "png",
+    "fileHashes": ["569d2aeaf6c65726aab653f9b593cf22", "eba23abefa4ca05878f5ec020a9e510e", "52cdc24bd8d1d088f032becc3fc41549", "d71657fa065a5959f9505852f010a0a2", "ff6f4b660830d78505310e23a2b376d6"]
+  });
+});

@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry2 = require(_dependencyMap[0], './internal/_curry2');
+
+  var always = require(_dependencyMap[1], './always');
+
+  var times = require(_dependencyMap[2], './times');
+
+  module.exports = _curry2(function repeat(value, n) {
+    return times(always(value), n);
+  });
+});

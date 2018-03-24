@@ -1,0 +1,21 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry2 = require(_dependencyMap[0], './internal/_curry2');
+
+  var _dispatchable = require(_dependencyMap[1], './internal/_dispatchable');
+
+  var _xall = require(_dependencyMap[2], './internal/_xall');
+
+  module.exports = _curry2(_dispatchable(['all'], _xall, function all(fn, list) {
+    var idx = 0;
+
+    while (idx < list.length) {
+      if (!fn(list[idx])) {
+        return false;
+      }
+
+      idx += 1;
+    }
+
+    return true;
+  }));
+});

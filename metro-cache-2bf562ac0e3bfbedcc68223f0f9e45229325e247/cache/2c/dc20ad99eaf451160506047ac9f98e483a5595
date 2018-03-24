@@ -1,0 +1,56 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _react = require(_dependencyMap[0], "react");
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _reactNative = require(_dependencyMap[1], "react-native");
+
+  var _expo = require(_dependencyMap[2], "expo");
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  {}
+  module.exports = _reactNative.StyleSheet.create({
+    container: {
+      flex: 1,
+      paddingTop: 20
+    },
+    header: {
+      textAlign: 'center',
+      justifyContent: 'center',
+      fontSize: 20
+    },
+    footer: {
+      alignItems: 'center',
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      bottom: -10,
+      height: 50
+    },
+    gobackButton: {
+      backgroundColor: '#64678f',
+      width: 60,
+      height: 60,
+      borderRadius: 40,
+      borderColor: '#000',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom: -20
+    },
+    followButton: {
+      backgroundColor: '#64678f',
+      width: 70,
+      height: 30,
+      borderColor: '#000',
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+    followText: {
+      color: 'white'
+    },
+    none: {
+      backgroundColor: 'white'
+    }
+  });
+});

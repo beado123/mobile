@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  var adjust = require(_dependencyMap[1], './adjust');
+
+  var always = require(_dependencyMap[2], './always');
+
+  module.exports = _curry3(function update(idx, x, list) {
+    return adjust(always(x), idx, list);
+  });
+});

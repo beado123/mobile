@@ -1,0 +1,7 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var identity = require(_dependencyMap[0], './identity');
+
+  var uniqBy = require(_dependencyMap[1], './uniqBy');
+
+  module.exports = uniqBy(identity);
+});

@@ -1,0 +1,13 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry1 = require(_dependencyMap[0], './internal/_curry1');
+
+  var assocPath = require(_dependencyMap[1], './assocPath');
+
+  var lens = require(_dependencyMap[2], './lens');
+
+  var path = require(_dependencyMap[3], './path');
+
+  module.exports = _curry1(function lensPath(p) {
+    return lens(path(p), assocPath(p));
+  });
+});

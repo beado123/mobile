@@ -1,0 +1,58 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _react = require(_dependencyMap[0], "react");
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _reactNative = require(_dependencyMap[1], "react-native");
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  {}
+  module.exports = _reactNative.StyleSheet.create({
+    headerBackground: {
+      flex: 1,
+      alignSelf: 'stretch'
+    },
+    header: {
+      flex: 10,
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 10,
+      backgroundColor: 'rgba(0,0,0,0.5)'
+    },
+    profilepicWrap: {
+      width: 90,
+      height: 90,
+      borderRadius: 30,
+      borderColor: '#000',
+      borderWidth: 1
+    },
+    profilepic: {
+      flex: 1,
+      width: null,
+      alignItems: 'stretch',
+      borderColor: '#cfd2d4',
+      borderWidth: 5
+    },
+    name: {
+      marginTop: 20,
+      fontSize: 16,
+      color: '#fff',
+      fontWeight: 'bold'
+    },
+    username: {
+      fontSize: 14,
+      color: '#f6e9e0'
+    },
+    button: {
+      width: 60,
+      height: 50,
+      borderColor: '#000',
+      borderRadius: 30,
+      backgroundColor: '#BFDDEF',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginTop: 10
+    }
+  });
+});

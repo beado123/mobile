@@ -1,0 +1,13 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry1 = require(_dependencyMap[0], './internal/_curry1');
+
+  var _dispatchable = require(_dependencyMap[1], './internal/_dispatchable');
+
+  var _xdropRepeatsWith = require(_dependencyMap[2], './internal/_xdropRepeatsWith');
+
+  var dropRepeatsWith = require(_dependencyMap[3], './dropRepeatsWith');
+
+  var equals = require(_dependencyMap[4], './equals');
+
+  module.exports = _curry1(_dispatchable([], _xdropRepeatsWith(equals), dropRepeatsWith(equals)));
+});

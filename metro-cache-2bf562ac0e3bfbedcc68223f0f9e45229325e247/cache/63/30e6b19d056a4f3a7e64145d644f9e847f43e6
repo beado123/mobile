@@ -1,0 +1,7 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _identity = require(_dependencyMap[0], './internal/_identity');
+
+  var chain = require(_dependencyMap[1], './chain');
+
+  module.exports = chain(_identity);
+});

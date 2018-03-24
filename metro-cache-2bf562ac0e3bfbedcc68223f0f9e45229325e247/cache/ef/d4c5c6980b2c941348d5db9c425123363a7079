@@ -1,0 +1,9 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _concat = require(_dependencyMap[0], './internal/_concat');
+
+  var _curry2 = require(_dependencyMap[1], './internal/_curry2');
+
+  module.exports = _curry2(function prepend(el, list) {
+    return _concat([el], list);
+  });
+});

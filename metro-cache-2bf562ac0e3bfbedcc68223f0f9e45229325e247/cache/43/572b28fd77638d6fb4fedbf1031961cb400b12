@@ -1,0 +1,359 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    var _react2 = require(_dependencyMap[0], "react");
+
+    var _react3 = _interopRequireDefault(_react2);
+
+    var _index = require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
+
+    var _index2 = _interopRequireDefault(_index);
+
+    var _jsxFileName = "/home/yihan/AwesomeProject/app/components/Repositry.js";
+
+    var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+    var _buffer = require(_dependencyMap[2], "buffer");
+
+    var _reactNative = require(_dependencyMap[3], "react-native");
+
+    var _reactNativeElements = require(_dependencyMap[4], "react-native-elements");
+
+    var _Repositry = require(_dependencyMap[5], "/home/yihan/AwesomeProject/app/styles/Repositry");
+
+    var _Repositry2 = _interopRequireDefault(_Repositry);
+
+    function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    var _components = {
+        RepoPage: {
+            displayName: "RepoPage"
+        }
+    };
+
+    var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+        filename: "/home/yihan/AwesomeProject/app/components/Repositry.js",
+        components: _components,
+        locals: [module],
+        imports: [_react3.default]
+    });
+
+    function _wrapComponent(id) {
+        return function (Component) {
+            return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+        };
+    }
+
+    {}
+
+    var RepoPage = _wrapComponent("RepoPage")(function (_React$Component) {
+        _inherits(RepoPage, _React$Component);
+
+        function RepoPage() {
+            var _ref,
+                _this3 = this;
+
+            var _temp, _this, _ret;
+
+            _classCallCheck(this, RepoPage);
+
+            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+                args[_key] = arguments[_key];
+            }
+
+            return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = RepoPage.__proto__ || Object.getPrototypeOf(RepoPage)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+                data: [],
+                user: '',
+                psw: '',
+                starColor: '#F2D13A',
+                reposColor: {},
+                reposColorStatus: {},
+                refreshing: false
+            }, _this.fetchData = function _callee() {
+                var username, password, params, login, reposJson, repos, dict;
+                return regeneratorRuntime.async(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _context.next = 2;
+                                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('username'));
+
+                            case 2:
+                                username = _context.sent;
+                                _context.next = 5;
+                                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('password'));
+
+                            case 5:
+                                password = _context.sent;
+                                params = _this.props.navigation.state.params;
+                                login = params ? params.name : username;
+
+                                _this.setState({
+                                    user: login,
+                                    psw: password
+                                });
+
+                                if (!(login == username)) {
+                                    _context.next = 24;
+                                    break;
+                                }
+
+                                _context.prev = 10;
+                                _context.next = 13;
+                                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('repos'));
+
+                            case 13:
+                                reposJson = _context.sent;
+                                repos = JSON.parse(reposJson);
+                                dict = {};
+                                repos.forEach(function (item) {
+                                    var _this2 = this;
+
+                                    var repoName = item.name;
+                                    fetch('http://api.github.com/user/starred/' + login + '/' + repoName, {
+                                        method: 'GET',
+                                        headers: {
+                                            'Authorization': 'Basic ' + new _buffer.Buffer(this.state.user + ':' + this.state.psw).toString('base64')
+                                        }
+                                    }).then(function (res) {
+                                        if (res.status == 204) {
+                                            dict[repoName] = '#F2D13A';
+
+                                            _this2.setState({
+                                                reposColor: dict,
+                                                data: repos
+                                            });
+
+                                            _this2.setState(_this2.state);
+                                        } else if (res.status == 404) {
+                                            dict[repoName] = 'grey';
+
+                                            _this2.setState({
+                                                reposColor: dict,
+                                                data: repos
+                                            });
+
+                                            _this2.setState(_this2.state);
+                                        }
+                                    }).catch(function (error) {
+                                        console.error(error);
+                                    });
+                                }.bind(_this));
+                                _context.next = 22;
+                                break;
+
+                            case 19:
+                                _context.prev = 19;
+                                _context.t0 = _context["catch"](10);
+                                console.error(_context.t0);
+
+                            case 22:
+                                _context.next = 25;
+                                break;
+
+                            case 24:
+                                fetch('http://api.github.com/users/' + login + '/repos').then(function (res) {
+                                    return res.json();
+                                }).then(function (res) {
+                                    _this.setState({
+                                        data: res || [],
+                                        refreshing: false
+                                    });
+                                }).catch(function (error) {
+                                    console.error(error);
+                                });
+
+                            case 25:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, null, _this3, [[10, 19]]);
+            }, _this.openRepo = function (login, name) {
+                var url = 'https://github.com/' + login + '/' + name;
+
+                _reactNative.Linking.openURL(url).catch(function (err) {
+                    return console.error('An error occurred', err);
+                });
+            }, _this.changeStarStatus = function (repoName) {
+                newdata = _this.state.data;
+                console.log('in changeStarStatus');
+                console.log('repo: ' + repoName);
+
+                if (_this.state.reposColor[repoName] == _this.state.starColor) {
+                    fetch('http://api.github.com/user/starred/' + _this.state.user + '/' + repoName, {
+                        method: 'DELETE',
+                        headers: {
+                            'Authorization': 'Basic ' + new _buffer.Buffer(_this.state.user + ':' + _this.state.psw).toString('base64')
+                        }
+                    }).then(function (response) {
+                        console.log('unstarred ' + repoName);
+                        var dict = _this.state.reposColor;
+                        dict[repoName] = 'grey';
+
+                        _this.setState({
+                            reposColor: dict
+                        });
+                    }).catch(function (error) {
+                        console.error(error);
+                    });
+                } else if (_this.state.reposColor[repoName] == 'grey') {
+                    fetch('http://api.github.com/user/starred/' + _this.state.user + '/' + repoName, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': 'Basic ' + new _buffer.Buffer(_this.state.user + ':' + _this.state.psw).toString('base64'),
+                            'Content-Lenght': 0
+                        }
+                    }).then(function (response) {
+                        console.log('starred ' + repoName);
+                        var dict = _this.state.reposColor;
+                        dict[repoName] = '#F2D13A';
+
+                        _this.setState({
+                            reposColor: dict
+                        });
+                    }).catch(function (error) {
+                        console.error(error);
+                    });
+                }
+            }, _this.handleRefresh = function () {
+                _this.setState({
+                    refreshing: true
+                }, function () {
+                    _this.setState({
+                        refreshing: false
+                    });
+                });
+            }, _temp), _possibleConstructorReturn(_this, _ret);
+        }
+
+        _createClass(RepoPage, [{
+            key: "componentWillMount",
+            value: function componentWillMount() {
+                this.fetchData();
+            }
+        }, {
+            key: "render",
+            value: function render() {
+                var _this4 = this;
+
+                return _react3.default.createElement(
+                    _reactNative.View,
+                    {
+                        style: _Repositry2.default.container,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 122
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.Text,
+                        {
+                            style: _Repositry2.default.header,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 123
+                            }
+                        },
+                        "repositries"
+                    ),
+                    _react3.default.createElement(
+                        _reactNativeElements.List,
+                        {
+                            style: {
+                                flex: 1
+                            },
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 124
+                            }
+                        },
+                        _react3.default.createElement(_reactNative.FlatList, {
+                            data: this.state.data,
+                            extraData: this.state,
+                            refreshing: this.state.refreshing,
+                            onRefresh: this.handleRefresh,
+                            keyExtractor: function keyExtractor(item, index) {
+                                return index;
+                            },
+                            renderItem: function renderItem(_ref2) {
+                                var item = _ref2.item;
+                                return _react3.default.createElement(_reactNativeElements.ListItem, {
+                                    rightIcon: {
+                                        name: 'star',
+                                        color: _this4.state.reposColor[item.name]
+                                    },
+                                    onPressRightIcon: function onPressRightIcon() {
+                                        return _this4.changeStarStatus(item.name);
+                                    },
+                                    title: item.name,
+                                    subtitle: item.description,
+                                    subtitleNumberOfLines: 10,
+                                    onLongPress: function onLongPress() {
+                                        return _this4.openRepo(item.owner.login, item.name);
+                                    },
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 132
+                                    }
+                                });
+                            },
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 125
+                            }
+                        })
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        {
+                            style: _Repositry2.default.footer,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 143
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.TouchableOpacity,
+                            {
+                                style: _Repositry2.default.gobackButton,
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 144
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.Text,
+                                {
+                                    style: {
+                                        color: '#fff'
+                                    },
+                                    onPress: function onPress() {
+                                        return _this4.props.navigation.goBack();
+                                    },
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 145
+                                    }
+                                },
+                                " Go Back "
+                            )
+                        )
+                    )
+                );
+            }
+        }]);
+
+        return RepoPage;
+    }(_react3.default.Component));
+
+    exports.default = RepoPage;
+});

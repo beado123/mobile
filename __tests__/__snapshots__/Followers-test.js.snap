@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "paddingTop": 20,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 20,
+        "justifyContent": "center",
+        "textAlign": "center",
+      }
+    }
+  >
+    followers
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#bbb",
+          "borderTopWidth": 1,
+          "marginTop": 20,
+        },
+        undefined,
+      ]
+    }
+  >
+    <RCTScrollView
+      data={Array []}
+      disableVirtualization={false}
+      extraData={
+        Object {
+          "data": Array [],
+          "followers": Object {},
+          "refreshing": false,
+          "user": "",
+        }
+      }
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onRefresh={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      refreshControl={
+        <RefreshControlMock
+          onRefresh={[Function]}
+          progressViewOffset={undefined}
+          refreshing={false}
+        />
+      }
+      refreshing={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <RCTRefreshControl />
+      <View />
+    </RCTScrollView>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": -10,
+        "height": 50,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#64678f",
+          "borderColor": "#000",
+          "borderRadius": 40,
+          "height": 60,
+          "justifyContent": "center",
+          "marginBottom": -20,
+          "opacity": 1,
+          "width": 60,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        onPress={[Function]}
+        style={
+          Object {
+            "color": "#fff",
+          }
+        }
+      >
+         Go Back 
+      </Text>
+    </View>
+  </View>
+</View>
+`;

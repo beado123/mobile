@@ -1,0 +1,7 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var add = require(_dependencyMap[0], './add');
+
+  var reduce = require(_dependencyMap[1], './reduce');
+
+  module.exports = reduce(add, 0);
+});

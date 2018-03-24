@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _reduce = require(_dependencyMap[0], './internal/_reduce');
+
+  var _xwrap = require(_dependencyMap[1], './internal/_xwrap');
+
+  var curryN = require(_dependencyMap[2], './curryN');
+
+  module.exports = curryN(4, function transduce(xf, fn, acc, list) {
+    return _reduce(xf(typeof fn === 'function' ? _xwrap(fn) : fn), acc, list);
+  });
+});

@@ -1,0 +1,7 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry1 = require(_dependencyMap[0], './internal/_curry1');
+
+  var _of = require(_dependencyMap[1], './internal/_of');
+
+  module.exports = _curry1(_of);
+});

@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry1 = require(_dependencyMap[0], './internal/_curry1');
+
+  var empty = require(_dependencyMap[1], './empty');
+
+  var equals = require(_dependencyMap[2], './equals');
+
+  module.exports = _curry1(function isEmpty(x) {
+    return x != null && equals(x, empty(x));
+  });
+});

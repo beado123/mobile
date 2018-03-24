@@ -1,0 +1,477 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    var _react2 = require(_dependencyMap[0], "react");
+
+    var _react3 = _interopRequireDefault(_react2);
+
+    var _index = require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
+
+    var _index2 = _interopRequireDefault(_index);
+
+    var _jsxFileName = "/home/yihan/AwesomeProject/app/components/Followers.js";
+
+    var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+    var _buffer = require(_dependencyMap[2], "buffer");
+
+    var _expo = require(_dependencyMap[3], "expo");
+
+    var _reactNative = require(_dependencyMap[4], "react-native");
+
+    var _reactNativeElements = require(_dependencyMap[5], "react-native-elements");
+
+    var _Repositry = require(_dependencyMap[6], "/home/yihan/AwesomeProject/app/styles/Repositry");
+
+    var _Repositry2 = _interopRequireDefault(_Repositry);
+
+    function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    var _components = {
+        FollowersPage: {
+            displayName: "FollowersPage"
+        }
+    };
+
+    var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+        filename: "/home/yihan/AwesomeProject/app/components/Followers.js",
+        components: _components,
+        locals: [module],
+        imports: [_react3.default]
+    });
+
+    function _wrapComponent(id) {
+        return function (Component) {
+            return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+        };
+    }
+
+    var FollowersPage = _wrapComponent("FollowersPage")(function (_React$Component) {
+        _inherits(FollowersPage, _React$Component);
+
+        function FollowersPage() {
+            var _ref,
+                _this3 = this;
+
+            var _temp, _this, _ret;
+
+            _classCallCheck(this, FollowersPage);
+
+            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+                args[_key] = arguments[_key];
+            }
+
+            return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = FollowersPage.__proto__ || Object.getPrototypeOf(FollowersPage)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+                data: [],
+                user: '',
+                username: '',
+                psw: '',
+                refreshing: false,
+                followers: {}
+            }, _this.fetchData = function _callee() {
+                var username, password, params, login, followers_dict, followersJson, followers;
+                return regeneratorRuntime.async(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _context.next = 2;
+                                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('username'));
+
+                            case 2:
+                                username = _context.sent;
+                                _context.next = 5;
+                                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('password'));
+
+                            case 5:
+                                password = _context.sent;
+                                params = _this.props.navigation.state.params;
+                                login = params ? params.name : username;
+
+                                _this.setState({
+                                    username: username,
+                                    user: login,
+                                    psw: password
+                                });
+
+                                console.log('fetching data...');
+
+                                if (!(login === username)) {
+                                    _context.next = 25;
+                                    break;
+                                }
+
+                                _context.prev = 11;
+                                followers_dict = {};
+                                _context.next = 15;
+                                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('followers'));
+
+                            case 15:
+                                followersJson = _context.sent;
+                                followers = JSON.parse(followersJson);
+                                followers.forEach(function (item) {
+                                    var _this2 = this;
+
+                                    var followerName = item.login;
+                                    fetch('http://api.github.com/user/following/' + followerName, {
+                                        method: 'GET',
+                                        headers: {
+                                            'Authorization': 'Basic ' + new _buffer.Buffer(this.state.user + ':' + this.state.psw).toString('base64'),
+                                            'Content-Lenght': 0
+                                        }
+                                    }).then(function (response) {
+                                        if (response.status == 204) {
+                                            console.log('is following ' + followerName);
+                                            followers_dict[followerName] = 'unfollow';
+
+                                            _this2.setState({
+                                                followers: followers_dict,
+                                                data: followers
+                                            });
+
+                                            _this2.setState(_this2.state);
+                                        } else if (response.status == 404) {
+                                            console.log('not following ' + followerName);
+                                            followers_dict[followerName] = 'follow';
+
+                                            _this2.setState({
+                                                followers: followers_dict,
+                                                data: followers
+                                            });
+
+                                            _this2.setState(_this2.state);
+                                        }
+                                    }).catch(function (error) {
+                                        console.error(error);
+                                    });
+                                }.bind(_this));
+                                _context.next = 23;
+                                break;
+
+                            case 20:
+                                _context.prev = 20;
+                                _context.t0 = _context["catch"](11);
+                                console.error(_context.t0);
+
+                            case 23:
+                                _context.next = 26;
+                                break;
+
+                            case 25:
+                                fetch('http://api.github.com/users/' + login + '/followers').then(function (res) {
+                                    return res.json();
+                                }).then(function (res) {
+                                    _this.setState({
+                                        data: res || [],
+                                        refreshing: false
+                                    });
+                                }).catch(function (error) {
+                                    console.error(error);
+                                });
+
+                            case 26:
+                            case "end":
+                                return _context.stop();
+                        }
+                    }
+                }, null, _this3, [[11, 20]]);
+            }, _this.handleRefresh = function () {
+                console.log("handle refresh");
+
+                _this.setState({
+                    refreshing: true
+                }, function () {
+                    _this.fetchData();
+                });
+            }, _this.changeFollowStatus = function (login) {
+                fetch('http://api.github.com/user/following/' + login, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Basic ' + new _buffer.Buffer(_this.state.user + ':' + _this.state.psw).toString('base64')
+                    }
+                }).then(function (res) {
+                    if (res.status == 204) {
+                        console.log('is following ' + login);
+                        fetch('http://api.github.com/user/following/' + login, {
+                            method: 'DELETE',
+                            headers: {
+                                'Authorization': 'Basic ' + new _buffer.Buffer(_this.state.user + ':' + _this.state.psw).toString('base64')
+                            }
+                        }).then(function _callee2(response) {
+                            var followingJson, following, followers_dict, followersJson, followers;
+                            return regeneratorRuntime.async(function _callee2$(_context2) {
+                                while (1) {
+                                    switch (_context2.prev = _context2.next) {
+                                        case 0:
+                                            console.log('unfollowed ' + login);
+                                            _context2.prev = 1;
+                                            _context2.next = 4;
+                                            return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('following'));
+
+                                        case 4:
+                                            followingJson = _context2.sent;
+                                            following = JSON.parse(followingJson);
+                                            following = following.filter(function (item) {
+                                                return item.login !== login;
+                                            });
+
+                                            _reactNative.AsyncStorage.setItem('following', JSON.stringify(following));
+
+                                            followers_dict = _this.state.followers;
+                                            followers_dict[login] = 'follow';
+                                            _context2.next = 12;
+                                            return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('followers'));
+
+                                        case 12:
+                                            followersJson = _context2.sent;
+                                            followers = JSON.parse(followersJson);
+
+                                            _this.setState({
+                                                followers: followers_dict,
+                                                data: followers
+                                            });
+
+                                            console.log('after filter, following ' + following.length);
+                                            _context2.next = 21;
+                                            break;
+
+                                        case 18:
+                                            _context2.prev = 18;
+                                            _context2.t0 = _context2["catch"](1);
+                                            console.error(_context2.t0);
+
+                                        case 21:
+                                        case "end":
+                                            return _context2.stop();
+                                    }
+                                }
+                            }, null, _this3, [[1, 18]]);
+                        }).catch(function (error) {
+                            console.error(error);
+                        });
+                    } else if (res.status == 404) {
+                            console.log('not following ' + login);
+                            fetch('http://api.github.com/user/following/' + login, {
+                                method: 'PUT',
+                                headers: {
+                                    'Authorization': 'Basic ' + new _buffer.Buffer(_this.state.user + ':' + _this.state.psw).toString('base64'),
+                                    'Content-Lenght': 0
+                                }
+                            }).then(function _callee3(response) {
+                                var followingJson, following, followersJson, followers, newFollowing, followers_dict;
+                                return regeneratorRuntime.async(function _callee3$(_context3) {
+                                    while (1) {
+                                        switch (_context3.prev = _context3.next) {
+                                            case 0:
+                                                console.log('followed ' + login);
+                                                _context3.prev = 1;
+                                                _context3.next = 4;
+                                                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('following'));
+
+                                            case 4:
+                                                followingJson = _context3.sent;
+                                                following = JSON.parse(followingJson);
+                                                _context3.next = 8;
+                                                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.getItem('followers'));
+
+                                            case 8:
+                                                followersJson = _context3.sent;
+                                                followers = JSON.parse(followersJson);
+                                                newFollowing = followers.find(function (item) {
+                                                    return item.login = login;
+                                                });
+                                                following.push(newFollowing);
+                                                console.log('after push, following ' + following.length);
+
+                                                _reactNative.AsyncStorage.setItem('following', JSON.stringify(following));
+
+                                                followers_dict = _this.state.followers;
+                                                followers_dict[login] = 'unfollow';
+
+                                                _this.setState({
+                                                    followers: followers_dict,
+                                                    data: followers
+                                                });
+
+                                                _context3.next = 22;
+                                                break;
+
+                                            case 19:
+                                                _context3.prev = 19;
+                                                _context3.t0 = _context3["catch"](1);
+                                                console.error(_context3.t0);
+
+                                            case 22:
+                                            case "end":
+                                                return _context3.stop();
+                                        }
+                                    }
+                                }, null, _this3, [[1, 19]]);
+                            }).catch(function (error) {
+                                console.error(error);
+                            });
+                        }
+                }).catch(function (error) {
+                    console.error(error);
+                });
+            }, _temp), _possibleConstructorReturn(_this, _ret);
+        }
+
+        _createClass(FollowersPage, [{
+            key: "componentWillMount",
+            value: function componentWillMount() {
+                this.fetchData();
+            }
+        }, {
+            key: "render",
+            value: function render() {
+                var _this4 = this;
+
+                return _react3.default.createElement(
+                    _reactNative.View,
+                    {
+                        style: _Repositry2.default.container,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 163
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.Text,
+                        {
+                            style: _Repositry2.default.header,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 164
+                            }
+                        },
+                        "followers"
+                    ),
+                    _react3.default.createElement(
+                        _reactNativeElements.List,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 165
+                            }
+                        },
+                        _react3.default.createElement(_reactNative.FlatList, {
+                            data: this.state.data,
+                            extraData: this.state,
+                            refreshing: this.state.refreshing,
+                            onRefresh: this.handleRefresh,
+                            keyExtractor: function keyExtractor(item, index) {
+                                return index;
+                            },
+                            renderItem: function renderItem(_ref2) {
+                                var item = _ref2.item;
+                                return _react3.default.createElement(_reactNativeElements.ListItem, {
+                                    roundAvatar: true,
+                                    avatar: {
+                                        uri: item.avatar_url
+                                    },
+                                    avatarStyle: {
+                                        width: 60,
+                                        height: 60
+                                    },
+                                    avatarContainerStyle: {
+                                        width: 60,
+                                        height: 60
+                                    },
+                                    title: item.login,
+                                    titleStyle: {
+                                        fontSize: 17
+                                    },
+                                    onPress: function onPress() {
+                                        return _this4.props.navigation.navigate('profile', {
+                                            name: item.login
+                                        });
+                                    },
+                                    rightIcon: _react3.default.createElement(
+                                        _reactNative.TouchableOpacity,
+                                        {
+                                            style: _this4.state.username == _this4.state.user ? _Repositry2.default.followButton : _Repositry2.default.none,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 181
+                                            }
+                                        },
+                                        _react3.default.createElement(
+                                            _reactNative.Text,
+                                            {
+                                                style: _Repositry2.default.followText,
+                                                onPress: function onPress() {
+                                                    return _this4.changeFollowStatus(item.login);
+                                                },
+                                                __source: {
+                                                    fileName: _jsxFileName,
+                                                    lineNumber: 182
+                                                }
+                                            },
+                                            _this4.state.followers[item.login]
+                                        )
+                                    ),
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 173
+                                    }
+                                });
+                            },
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 166
+                            }
+                        })
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        {
+                            style: _Repositry2.default.footer,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 189
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.TouchableOpacity,
+                            {
+                                style: _Repositry2.default.gobackButton,
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 190
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.Text,
+                                {
+                                    style: {
+                                        color: '#fff'
+                                    },
+                                    onPress: function onPress() {
+                                        return _this4.props.navigation.goBack();
+                                    },
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 191
+                                    }
+                                },
+                                " Go Back "
+                            )
+                        )
+                    )
+                );
+            }
+        }]);
+
+        return FollowersPage;
+    }(_react3.default.Component));
+
+    exports.default = FollowersPage;
+});

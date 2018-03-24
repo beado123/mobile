@@ -1,0 +1,11 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry1 = require(_dependencyMap[0], './internal/_curry1');
+
+  var converge = require(_dependencyMap[1], './converge');
+
+  module.exports = _curry1(function juxt(fns) {
+    return converge(function () {
+      return Array.prototype.slice.call(arguments, 0);
+    }, fns);
+  });
+});

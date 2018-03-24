@@ -1,0 +1,9 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  module.exports = _curry3(function ascend(fn, a, b) {
+    var aa = fn(a);
+    var bb = fn(b);
+    return aa < bb ? -1 : aa > bb ? 1 : 0;
+  });
+});

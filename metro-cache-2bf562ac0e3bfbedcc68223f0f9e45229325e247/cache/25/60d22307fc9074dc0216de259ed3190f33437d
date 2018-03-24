@@ -1,0 +1,9 @@
+__d(function (global, require, module, exports, _dependencyMap) {
+  var _curry3 = require(_dependencyMap[0], './internal/_curry3');
+
+  var is = require(_dependencyMap[1], './is');
+
+  module.exports = _curry3(function propIs(type, name, obj) {
+    return is(type, obj[name]);
+  });
+});
