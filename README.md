@@ -20,9 +20,9 @@ Shows basic information of the user, including number of followers, following, r
 
 <img src="app/img/IMG_1656.PNG" height="400">       <img src="app/img/IMG_1657.PNG" height="400">  <img src="app/img/IMG_1658.PNG" height="400">
 
-### Repositry Page
-* Lists all the repositries of the user, can star or unstar a repositry.
-* When pressing the grey star to star the repositry, the color of star changes to yellow. 
+### Repository Page
+* Lists all the repositories of the user, can star or unstar a repository.
+* When pressing the grey star to star the repository, the color of star changes to yellow. 
 
 <img src="app/img/IMG_1639.PNG" height="400">   <img src="app/img/IMG_1659.PNG" height="400">
 
