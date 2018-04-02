@@ -18,7 +18,7 @@ Shows basic information of the user, including number of followers, following, r
 
 * Can search the user by their names. Can sort users by their number of followers and create date. 
 
-<img src="app/img/IMG_1696.PNG" height="400">       <img src="app/img/IMG_1697.PNG" height="400">  <img src="app/img/IMG_1658.PNG" height="400">
+<img src="app/img/IMG_1696.PNG" height="400">       <img src="app/img/IMG_1697.PNG" height="400">  
 
 ### Repository Page
 * Lists all the repositories of the user, can star or unstar a repository.
@@ -29,4 +29,5 @@ Shows basic information of the user, including number of followers, following, r
 
 ### View Other Users
 Can view profile page, followers and following page of users that show up in your followers/following list.
+
 <img src="app/img/IMG_1641.PNG" height="400"> <img src="app/img/IMG_1700.PNG" height="400">  <img src="app/img/IMG_1701.PNG" height="400"> 
