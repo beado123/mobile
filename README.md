@@ -16,7 +16,7 @@ An in-progress mobile app that explores your github profile and can follow/unfol
 
 * Can search the user by their names. Can sort users by their number of followers and create date. 
 
-<img src="app/img/IMG_1696.PNG" height="400">       <img src="app/img/IMG_1697.PNG" height="400">  
+<img src="app/img/IMG_1708.PNG" height="400">       <img src="app/img/IMG_1697.PNG" height="400">  
 
 ### Repository Page
 * Lists all the repositories of the user, can star or unstar a repository.
