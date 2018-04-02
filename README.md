@@ -2,15 +2,12 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 
 An in-progress mobile app that explores your github profile and can follow/unfollow users, start/unstar repositries.
 
-### Login Page
-Uses Basic OAuth(username and passwords) to login and interact with github API.
+### Login Page, Profile Page, Notification Page
+* Uses Basic OAuth(username and passwords) to login and interact with github API.
+* Shows basic information of the user, including number of followers, following, repositries, and create date.
+* Show notifications from the conversation you're participating and repositories you're watching.
 
-<img src="app/img/IMG_1644.PNG" height="400">
-
-### Profile Page
-Shows basic information of the user, including number of followers, following, repositries, and create date.
-
-<img src="app/img/IMG_1702.PNG" height="400">
+<img src="app/img/IMG_1644.PNG" height="400">   <img src="app/img/IMG_1702.PNG" height="400">  <img src="app/img/IMG_1698.PNG" height="400">
 
 ### Following/Follower Page
 * Lists following and followers of the user, can unfollow or follow the list of users.
@@ -32,11 +29,6 @@ Shows basic information of the user, including number of followers, following, r
 Can view profile page, followers and following page of users that show up in your followers/following list.
 
 <img src="app/img/IMG_1641.PNG" height="400"> <img src="app/img/IMG_1700.PNG" height="400">  <img src="app/img/IMG_1701.PNG" height="400"> 
-
-### Notification Page
-Can Show notifications from the conversation you're participating and repositories you're watching.
-
-<img src="app/img/IMG_1698.PNG" height="400">
 
 ### Visualization of a popular Github Repository
 
