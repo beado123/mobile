@@ -7,7 +7,7 @@ An in-progress mobile app that explores your github profile and can follow/unfol
 * Shows basic information of the user, including number of followers, following, repositries, and create date.
 * Shows notifications from the conversation you're participating and repositories you're watching.
 
-<img src="app/img/IMG_1644.PNG" height="400">   <img src="app/img/IMG_1702.PNG" height="400">  <img src="app/img/IMG_1698.PNG" height="400">
+<img src="app/img/IMG_1644.PNG" height="400">   <img src="app/img/IMG_1702.PNG" height="400">  <img src="app/img/IMG_1710.PNG" height="400">
 
 ### Following/Follower Page
 * Lists following and followers of the user, can unfollow or follow the list of users.
