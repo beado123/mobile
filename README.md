@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 An in-progress mobile app that explores your github profile and can follow/unfollow users, start/unstar repositries.
 
 ### Login Page, Profile Page, Notification Page
-* Uses Basic OAuth(username and passwords) to login and interact with github API.
+* Uses Basic OAuth(username and password) to login and interact with github API.
 * Shows basic information of the user, including number of followers, following, repositries, and create date.
 * Shows notifications from the conversation you're participating and repositories you're watching.
 
