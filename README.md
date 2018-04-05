@@ -23,7 +23,7 @@ An in-progress mobile app that explores your github profile and can follow/unfol
 * When pressing the grey star to star the repository, the color of star changes to yellow. 
 * Can search the repositories by their names. Can sort repositories by star gazers count and create date. 
 
-<img src="app/img/IMG_1693.PNG" height="400">   <img src="app/img/IMG_1716.PNG" height="400"> 
+<img src="app/img/IMG_1693.PNG" height="400">  <img src="app/img/IMG_1717.PNG" height="400">  <img src="app/img/IMG_1716.PNG" height="400"> 
 
 ### View Other Github Users
 Can view profile page, followers and following page of users that show up in your followers/following list.
