@@ -6,3 +6,9 @@ test('renders correctly', () => {
   const tree = renderer.create(<Following />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('refreshing state should change', () => {
+    let followingComponent = renderer.create(<Following/>).getInstance();
+    followingComponent.handleRefresh();
+    expect(followingComponent.state.refreshing).toBe(true);
+});

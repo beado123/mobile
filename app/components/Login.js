@@ -5,14 +5,15 @@ import { Constants } from 'expo';
 import styleLogin from '/home/yihan/AwesomeProject/app/styles/Login.js';
 import styleHeader from '/home/yihan/AwesomeProject/app/styles/Header.js';
 
+{/*The design of login page follows from https://www.youtube.com/watch?v=jGU2I6sYDLE*/}
 export default class FollowersPage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: '',
-            psw: ''
-        };
-    }
+
+    state = {
+        username: '',
+        psw: ''
+    };
+
+    /*This function stores username and password to AsyncStorage and navigates to profile page. */
     login = () => {
         AsyncStorage.setItem('username', this.state.username);
         AsyncStorage.setItem('password', this.state.psw);
@@ -24,7 +25,7 @@ export default class FollowersPage extends React.Component {
             <View style={styleLogin.container}>
                 <ImageBackground style={styleHeader.headerBackground} source={require('/home/yihan/AwesomeProject/app/img/wallpaper2.jpg')}>
                     <View style={styleLogin.content}>
-                        <Text style={styleLogin.logo}>Github Manager</Text>
+                        <Text style={styleLogin.logo}>Try your Github account!</Text>
                             <View style={styleLogin.inputContainer}>
                                 <TextInput style={styleLogin.input} onChangeText={(text) => this.setState({username:text})} placeholder='username'></TextInput>
                                 <TextInput secureTextEntry={true} style={styleLogin.input} onChangeText={(text) => this.setState({psw:text})} placeholder='password'></TextInput>

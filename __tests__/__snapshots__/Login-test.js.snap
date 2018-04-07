@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "flex": 1,
+      }
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": undefined,
+            "width": undefined,
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "Georgia",
+            "fontSize": 25,
+            "marginTop": 80,
+            "textAlign": "center",
+            "textShadowColor": "#429DD4",
+            "textShadowOffset": Object {
+              "height": 2,
+              "width": 2,
+            },
+            "textShadowRadius": 15,
+            "width": 400,
+          }
+        }
+      >
+        Try your Github account!
+      </Text>
+      <View
+        style={
+          Object {
+            "alignSelf": "stretch",
+            "borderColor": "#ffff",
+            "borderWidth": 1,
+            "margin": 70,
+            "marginBottom": 0,
+            "padding": 20,
+            "paddingBottom": 10,
+          }
+        }
+      >
+        <TextInput
+          allowFontScaling={true}
+          onChangeText={[Function]}
+          placeholder="username"
+          style={
+            Object {
+              "backgroundColor": "#DDEDF6",
+              "fontFamily": "Palatino",
+              "fontSize": 16,
+              "height": 40,
+              "marginBottom": 10,
+              "padding": 10,
+            }
+          }
+        />
+        <TextInput
+          allowFontScaling={true}
+          onChangeText={[Function]}
+          placeholder="password"
+          secureTextEntry={true}
+          style={
+            Object {
+              "backgroundColor": "#DDEDF6",
+              "fontFamily": "Palatino",
+              "fontSize": 16,
+              "height": 40,
+              "marginBottom": 10,
+              "padding": 10,
+            }
+          }
+        />
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          collapsable={undefined}
+          hasTVPreferredFocus={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignSelf": "stretch",
+              "backgroundColor": "#BFDDEF",
+              "borderColor": "#fff",
+              "borderWidth": 1,
+              "margin": 10,
+              "opacity": 1,
+              "padding": 10,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontFamily": "Georgia",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "textAlign": "center",
+              }
+            }
+          >
+            LOGIN
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
