@@ -4,7 +4,7 @@ An in-progress mobile app that explores your github profile and can follow/unfol
 
 ### Login Page, Profile Page, Notification Page
 * Uses Basic OAuth(username and password) to login and interact with github API.
-* Shows basic information of the user, including number of followers, following, repositries, and create date.
+* Shows basic information of the user, including number of followers, following, repositories, and create date.
 * Shows notifications from the conversation you're participating and repositories you're watching.
 
 <img src="app/img/IMG_1711.PNG" height="400">   <img src="app/img/IMG_1702.PNG" height="400">  <img src="app/img/IMG_1710.PNG" height="400">
